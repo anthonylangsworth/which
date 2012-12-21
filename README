@@ -1,0 +1,3 @@
+A very simple implementation of the Unix command "which". Given a command to search for as the first argument, this scans the PATH environment variable to find the executable, script, batch file or similar will be executed. Note that it scans the PATHEXT environment variable to match the extensions correctly, too.
+
+See LICENSE for the license (BSD).
