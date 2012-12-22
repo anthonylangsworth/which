@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "which", "which.csproj", "{87F4CCED-2AB2-4758-9F88-3D5018EBD348}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "which", "which\which.csproj", "{87F4CCED-2AB2-4758-9F88-3D5018EBD348}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "which.Test", "which.Test\which.Test.csproj", "{AD05403E-AC04-4DB3-9839-EB70A19DABC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,10 @@ Global
 		{87F4CCED-2AB2-4758-9F88-3D5018EBD348}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87F4CCED-2AB2-4758-9F88-3D5018EBD348}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87F4CCED-2AB2-4758-9F88-3D5018EBD348}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD05403E-AC04-4DB3-9839-EB70A19DABC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD05403E-AC04-4DB3-9839-EB70A19DABC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD05403E-AC04-4DB3-9839-EB70A19DABC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD05403E-AC04-4DB3-9839-EB70A19DABC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
