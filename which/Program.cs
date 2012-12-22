@@ -63,7 +63,7 @@ namespace which
 executable, batch file or script (based on the PATHEXT variable) that would be
 executed for each command. Nothing is output if a command is not found.
 
-WHICH [command 1] [command 2] [command 3] ... [command n]
+WHICH command [command 2] [command 3] ... [command n]
 
 'which' sets the error level to the number of commands that were not found.
 
