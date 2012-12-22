@@ -43,7 +43,7 @@ namespace which
             if (pathEnvironmentVariable != null)
             {
                 foreach (string directory in
-                    pathEnvironmentVariable.Split(new char[] { separator }, StringSplitOptions.RemoveEmptyEntries))
+                    pathEnvironmentVariable.Split(new [] { separator }, StringSplitOptions.RemoveEmptyEntries))
                 {
                     yield return directory;
                 }

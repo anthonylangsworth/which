@@ -59,12 +59,11 @@ namespace which
         private static void ShowHelp()
         {
             Console.Error.WriteLine(
-@"Usage: which <command 1> <command 2> <command 3> ... <command n>
+@"Iterates the current PATH environment variable and outputs the path to the 
+executable, batch file or script (based on the PATHEXT variable) that would be
+executed for each command. Nothing is output if a command is not found.
 
-'which' iterates the current PATH environment variable and outputs the path 
-to the executable, batch file or script (based on the PATHEXT variable) that
-would be executed for each command. Nothing is printed if a command is not 
-found.
+WHICH [command 1] [command 2] [command 3] ... [command n]
 
 'which' sets the error level to the number of commands that were not found.
 

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace which
 {
+    /// <summary>
+    /// Check whether a file exists. (There is probably a better name)
+    /// </summary>
     public class FileChecker
     {
         /// <summary>

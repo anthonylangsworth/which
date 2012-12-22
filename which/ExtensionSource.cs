@@ -24,7 +24,7 @@ namespace which
         /// </returns>
         public IEnumerable<string> GetExtenions()
         {
-            return new[] { "" }.Concat(
+            return new[] { string.Empty }.Concat(
                 GetExtensions(Environment.GetEnvironmentVariable("PATHEXT"), PathExtensionsSeparator));
         }
 
@@ -45,7 +45,7 @@ namespace which
             if (pathExtensionsEnvironmentVariable != null)
             {
                 foreach (string extension in
-                    pathExtensionsEnvironmentVariable.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries))
+                    pathExtensionsEnvironmentVariable.Split(new [] { separator }, StringSplitOptions.RemoveEmptyEntries))
                 {
                     yield return extension;
                 }

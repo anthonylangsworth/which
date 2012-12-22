@@ -22,10 +22,10 @@ namespace which
         /// The name of the executable, batch file, script, etc to look for.
         /// This cannot be null, empty or whitespace.
         /// </param>
-        /// <param name="directories">
+        /// <param name="getDirectories">
         /// A list of directories to search.
         /// </param>
-        /// <param name="extensions">
+        /// <param name="getExtensions">
         /// A list of extensions to search.
         /// </param>
         /// <param name="fileExists">
@@ -37,8 +37,8 @@ namespace which
         /// <exception cref="ArgumentException">
         /// <paramref name="command"/> is empty or whitespace.
         /// </exception>
-        public string Find(string command, Func<IEnumerable<string>> directories,
-            Func<IEnumerable<string>> extensions, Predicate<string> fileExists)
+        public string Find(string command, Func<IEnumerable<string>> getDirectories,
+            Func<IEnumerable<string>> getExtensions, Predicate<string> fileExists)
         {
             if (command == null)
             {
@@ -48,13 +48,13 @@ namespace which
             {
                 throw new ArgumentException("command cannot be empty or whitespace", "command");
             }
-            if (directories == null)
+            if (getDirectories == null)
             {
-                throw new ArgumentNullException("directories");
+                throw new ArgumentNullException("getDirectories");
             }
-            if (extensions == null)
+            if (getExtensions == null)
             {
-                throw new ArgumentNullException("extensions");
+                throw new ArgumentNullException("getExtensions");
             }
             if (fileExists == null)
             {
@@ -66,20 +66,20 @@ namespace which
             // The windows command parser appears to look for the current file
             // first then iterate thhough the extensions.
 
-            //foreach (string directory in directories())
-            //{
-            //    commandPath = Path.Combine(directory, command);
-            //    if (fileExists(commandPath))
-            //    {
-            //        return commandPath;
-            //    }
-            //}
-
-            foreach (string extension in extensions())
+            foreach (string directory in getDirectories())
             {
-                foreach (string directory in directories())
+                commandPath = Path.Combine(directory, command);
+                if (fileExists(commandPath))
                 {
-                    commandPath = Path.Combine(Path.Combine(directory, command), extension);
+                    return commandPath;
+                }
+            }
+
+            foreach (string extension in getExtensions())
+            {
+                foreach (string directory in getDirectories())
+                {
+                    commandPath = Path.Combine(directory, command) + "." + extension;
                     if (fileExists(commandPath))
                     {
                         return commandPath;
