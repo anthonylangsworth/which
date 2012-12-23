@@ -1,10 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using CommandLine;
 
 namespace which
 {
-    class Program
+    /// <summary>
+    /// 
+    /// </summary>
+    internal class Program
     {
         /// <summary>
         /// Standard entry point.
@@ -15,61 +21,39 @@ namespace which
         /// <returns>
         /// The number of commands not found.
         /// </returns>
-        static int Main(string[] args)
+        public static int Main(string[] args)
         {
-            int returnValue;
-            string commandPath;
+            WhichCommandLineArguments arguments;
             CommandFinder commandFinder;
+            DirectorySource directorySource;
+            ExtensionSource extensionSource;
+            FileChecker fileChecker;
+            int returnValue;
 
-            // Not worth a dedicated command line parser
-            returnValue = 0;
-            if (args.Length == 1 && (args[0] == "-?" || args[0] == "/?" 
-                || args[0].Equals("-h", StringComparison.CurrentCultureIgnoreCase)
-                || args[0].Equals("--help", StringComparison.CurrentCultureIgnoreCase)
-                || args[0].Equals("/h", StringComparison.CurrentCultureIgnoreCase)))
+            arguments = new WhichCommandLineArguments();
+            if (CommandLineParser.Default.ParseArguments(args, arguments, Console.Error))
             {
-                ShowHelp();
+                commandFinder = new CommandFinder();
+                directorySource = new DirectorySource();
+                extensionSource = new ExtensionSource();
+                fileChecker = new FileChecker();
+
+                IList<string> paths = new List<string>(arguments.Commands.Select(
+                    x => commandFinder.Find(x, directorySource.GetDirectories,
+                    extensionSource.GetExtenions, fileChecker.FileExists)));
+                foreach (string path in paths.Where(x => x != null))
+                {
+                    Console.Out.WriteLine(path);
+                }
+
+                returnValue = paths.Count(x => x == null);
             }
             else
             {
-                commandFinder = new CommandFinder();
-
-                for (int i = 0; i < args.Length; i++)
-                {
-                    commandPath = commandFinder.Find(args[i], new DirectorySource().GetDirectories,
-                                                     new ExtensionSource().GetExtenions,
-                                                     new FileChecker().FileExists);
-                    if (commandPath != null)
-                    {
-                        Console.Out.WriteLine(commandPath);
-                    }
-                    else
-                    {
-                        returnValue++;
-                    }
-                }
+                returnValue = 1;
             }
 
             return returnValue;
-        }
-
-        /// <summary>
-        /// Show a help message.
-        /// </summary>
-        private static void ShowHelp()
-        {
-            Console.Error.WriteLine(
-@"Iterates the current PATH environment variable and outputs the path to the 
-executable, batch file or script (based on the PATHEXT variable) that would be
-executed for each command. Nothing is output if a command is not found.
-
-WHICH command [command 2] [command 3] ... [command n]
-
-'which' sets the error level to the number of commands that were not found.
-
-The source to 'which' is available on github at 
-https://github.com/anthonylangsworth/which.
-");
         }
     }
 }

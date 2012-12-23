@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "which.Test", "which.Test\wh
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E4A1763F-0292-463E-8F9E-17271E3304A4}"
 	ProjectSection(SolutionItems) = preProject
-		LICENCE = LICENCE
+		LICENSE = LICENSE
 		README = README
 	EndProjectSection
 EndProject

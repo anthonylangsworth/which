@@ -1,3 +1,3 @@
-A very simple implementation of the Unix command "which". Given commands to search for, this scans the PATH environment variable to find the executable, script, batch file or similar will be executed. Note that it scans the PATHEXT environment variable to match the extensions correctly, too.
+A very simple implementation of GNU "which" for Windows. Given commands to search for, this scans the PATH environment variable to find the executable, script, batch file or similar will be executed. Note that it scans the PATHEXT environment variable to match the extensions correctly, too.
 
-See LICENCE for the license (BSD).
+See LICENSE for the license (BSD).
