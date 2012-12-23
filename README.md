@@ -1,9 +1,9 @@
 which
 ===
 A very simple implementation of GNU "which" for Windows. Given commands to
-search for, this scans the PATH environment variable to find the executable, 
-script, batch file or similar will be executed. It scans the PATHEXT
-environment variable to match the extensions correctly, too.
+search for, this scans the PATH (to find the directories) and PATHEXT (for the
+extensions) environment variables to find the script, batch file or similar 
+that would be executed. 
 
 License
 ---
