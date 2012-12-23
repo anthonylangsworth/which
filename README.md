@@ -7,7 +7,7 @@ environment variable to match the extensions correctly, too.
 
 License
 ---
-See [LICENSE](./LICENSE) for the license (BSD).
+See LICENSE for the license (BSD).
 
 Platform
 ---
