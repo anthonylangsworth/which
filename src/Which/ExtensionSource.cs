@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace which
+namespace Which
 {
     /// <summary>
     /// The source of possible command extensions, specifically the PATHEXT environment variable.

@@ -2,7 +2,7 @@
 using CommandLine;
 using CommandLine.Text;
 
-namespace which
+namespace Which
 {
     /// <summary>
     /// Command line argument container.

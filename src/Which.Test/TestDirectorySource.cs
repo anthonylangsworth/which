@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using NUnit.Framework;
 
-namespace which.Test
+namespace Which.Test
 {
     /// <summary>
     /// Test <see cref="DirectorySource"/>.

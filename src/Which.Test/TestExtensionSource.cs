@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
-namespace which.Test
+namespace Which.Test
 {
     /// <summary>
     /// Test <see cref="ExtensionSource"/>.

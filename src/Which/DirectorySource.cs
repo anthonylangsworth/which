@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace which
+namespace Which
 {
     /// <summary>
     /// The source of directories to search, specifically the PATH environment variable.

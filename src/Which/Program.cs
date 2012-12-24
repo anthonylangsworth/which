@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using CommandLine;
 
-namespace which
+namespace Which
 {
     /// <summary>
     /// 
